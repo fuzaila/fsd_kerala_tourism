@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Kannur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Vaalea - html5 & css3 free template from Css-workshop.com made by Frontoes.com">
+	<meta name="keywords" content="free html template, free css template, one page template">
+	<meta name="author" content="Frontoes.com for Css-workshop.com">
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script type="text/javascript" src="js/jquery.viewportchecker.js"></script>
+	<script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+	
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic,600,300,700italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link type="image/ico" rel="shortcut icon" href="favicon.ico">
+    <link href='owl.carousel/owl-carousel/owl.carousel.css' rel='stylesheet' type='text/css'>
+    <link href='owl.carousel/owl-carousel/owl.theme.css' rel='stylesheet' type='text/css'>
+	<link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
+	
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+		<link type="image/ico" rel="shortcut icon" href="favicon.png">
+	<script type="text/javascript">
+		$(function() {
+			/* UP BUTTON */
+			$(".up-button").click(function(e) {
+				e.preventDefault();
+				$.scrollTo(0, 1000);
+			});
+			/* UP BUTTON */
+			
+			/* FIXED NAVBAR */
+			var beginingPositionOfMenu = $("#top_menu").offset().top;
+			var navParentPaddingBottom = parseInt($("#top_menu").parent().css("padding-bottom").replace("px",""));
+			$(window).scroll(function(){
+				if($(this).scrollTop() > beginingPositionOfMenu) {
+					$("#top_menu").addClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom + $("#top_menu").height());
+				} else {
+					$("#top_menu").removeClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom);
+				}
+				if ($(this).scrollTop() > 400){ 
+					$('.up-button').css('display','inline-block'); 
+				}
+				else{
+					$('.up-button').css('display','none');
+				}
+			});
+			/* FIXED NAVBAR */
+			
+			/* MENU */
+			$("ul.top_menu").find('.nav_link').click(function(){
+				var $href = $(this).attr('href');
+			    var parts = $href.split('#'),
+			    trgt = parts[1],
+			    target_offset = $('#'+trgt).offset(),
+			    target_top = target_offset.top - 90;
+  				$('html, body').animate({scrollTop:target_top}, 500);
+   				$('ul.top_menu').children().removeClass();
+   				$(this).parent().addClass('active');
+			});
+			/* MENU */
+			
+			/* MODAL TRIGGER */
+			$(".modal_trigger").click(function(e) {
+				e.preventDefault();
+				$('#myModal').modal({ show: 1 })
+			});
+			/* MODAL TRIGGER */
+			
+			$(".portfolio-item").each(function() {
+				var parentHeight = $(this).height();
+				var childHeight = $(this).find(".portfolio-description h4").outerHeight(true) + $(this).find(".portfolio-description p").outerHeight(true);
+				var topSpace = (parentHeight - childHeight) / 2;
+				$(this).find(".portfolio-description").css({"padding-top": topSpace + "px", "padding-bottom": topSpace + "px"});
+			});
+			
+			sameHeight(".pricing-description");
+			
+		});
+		
+		function sameHeight(blocks) {
+			var i = 0;
+			var maxVal;
+			$(blocks).each(function() {
+				if(i == 0) {
+					maxVal = $(this).height();
+				} else {
+					if($(this).outerHeight() > maxVal) {
+						maxVal = $(this).height();
+					}
+				}
+				i++;
+			});
+			
+			$(blocks).each(function() {
+				$(this).height(maxVal);
+			});
+		}
+        /* owl carousel */
+		$(document).ready(function () {
+
+		    var owl = $(".owl-carousel-1");
+		    var owl2 = $(".owl-carousel-2");
+
+		    owl.owlCarousel({
+		        items: 5, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+		        itemsTablet: [768, 1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+		    });
+		    owl2.owlCarousel({
+		        items: 1, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 1], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 1], // betweem 900px and 601px
+		        itemsTablet: [768,1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+                transitionStyle: "fade",
+		    });
+		});
+		/* VIEWPORT CHECKER */
+		$(document).ready(function () {
+		    $('.module-title').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		    $('.services-item i').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		});
+	</script>
+</head>
+<body>
+    <div class="header">
+        <nav id="top_menu" class="navbar navbar_top navbar-inverse" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <!-- <a href="index.html" style="color: green;" class="top-menu nav_link">KERALA TOURISM.ORG</a>  -->
+                    <a class="navbar-brand" href="#"><img class="img-responsive" src="img/kerala-tourism1.png" style="height: 30px; width: 65px;" alt="vaalea" /></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right top_menu">
+						<li><a href="index.html" class="nav_link">Home</a></li>
+						<li><a href="districts.html" class="dropdown-toggle nav_link">Districts</a></li>
+                        <li><a href="blog.html" class="dropdown-toggle nav_link">Blog</a></li>
+                        
+                        <li><a href="login.html" class="nav_link" style="">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</div>
+	
+	<div class="sub_content_light">
+		<div class="container module">
+			<div class="row inner">
+					<div class="col-lg-12">
+
+                        <h2 class="module-title" id="news">
+                            KANNUR
+						</h2> 
+						
+                        <div class="news">
+
+                            <div class="row">
+
+								<div class="col-lg-2"></div>
+
+								<div class="col-lg-8">
+										
+
+											<div id="carousel-example-generic" class="carousel slide genn" data-ride="carousel">
+
+												<!-- Indicators -->
+												<ol class="carousel-indicators">
+												<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+												</ol>
+											
+												<!-- Wrapper for slides -->
+												<div class="carousel-inner" role="listbox">
+												<div class="item active">
+													<img src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/02/Cover-image-of-waterfalls-in-Kannur.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/Places-near-Kannur_8th-jan.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2020/01/St.-Angelo-Fort_10th-jan.jpeg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2019/12/800px-Parassini.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2019/12/800px-Palakkayam_thattu.jpg" class="img-responsive">
+												</div>
+												</div>
+											
+												<!-- Controls -->
+												<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+												<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+												</a>
+												<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+												<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+												<span class="sr-only">Next</span>
+												</a>
+
+											</div>
+										
+								</div>
+								
+								<div class="col-lg-6"></div>
+
+							</div>	
+
+							<div class="row">
+									<div class="col-lg-2"></div>
+									<div class="col-lg-8" style="font-size: large; text-align: justify;">
+										<p>Kannur is a beautiful and blissful destination in Kerala. It is blessed with unbonding beauty and charm that will cast a spell on you. From bays and beaches to museums and forts, it offers unique and interesting places to visit. Apart from that, there are a plethora of things to do in Kannur that you can indulge in to give yourself an escape from the daily routine. They will help you know about the culture of the town and make you desire to visit it again and again.</p>
+
+										<p>Kannur is also known as the ‘Manchester of Kerala’ as the handloom fabric produced here is the finest and is exported to many great countries. The best time to visit Kannur is from September to March as the weather would be pleasant during these months and you will be able to explore the destination comfortably. April to June are the summer months and would be humid whereas from June to August are monsoon months and the place experiences heavy rainfall.</p>
+
+										<p>Some of the best things to shop for in Kannur are Banana chips, tea, coffee, aroma oils, and Cashew nut. Kannur is famous around the world for its gold shops around the world so you can also shop for Kannur. It is also a place for food lovers, with delicious Thalassery Chicken Biryani, Unnakkaya, Malabar Beef roast, Kallumakkaya Nirachalthi, Chatti Pathiri, and Mutton Korma to savour.</p><br>
+
+										<h3>MAJOR THINGS TO DO</h3>
+										<ol>
+											<li>
+												<h4>Banana Boat Ride</h4>
+                                                    
+                                                <p style="font-size: smaller;"> Kannur is blessed with many pristine beaches. One of the best things to do in Kannur is a banana boat ride on Payyambalam beach. The beach has white sandy shores and offers picturesque views. You can indulge in the banana boat ride and treat the adventurer within like never before.In this activity, there is a banana-shaped boat which you will ride with safety jackets on! The activity is for 10 minutes. <br><br>                                                   
+                                                <b>Timings: </b>8am – 5pm<br>
+												<b>Location:</b> Payyambalam beach, Kannur<br><br></p>
+											</li>
+											<li>
+												<h4>Paithalmala Trekking</h4>
+                                                <p style="font-size: smaller;">This beautiful hill station is located in North Kerala and is a delight to the eyes. Nestled at a height of 4500 m from Kerala, this hill station is a place you cannot miss out on. Trekking to Paithalmala is one of the best things to do in Kannur, Kerala. Trekking to the top of the hill station will leave you mesmerized and spell bound! You will be passing through Brahmagiri forests, green vegetation, and get to spot animals like Asian elephants, tigers, leopards, deer, wild boar and more.<br><br>
+                                                <b>Price: </b>INR 3900<br>
+												<b>Location: </b>Kannur, Kerala<br><br></p>
+											</li>
+											<li>
+												<h4>Bike Trip</h4>
+												<p style="font-size: smaller;">Bike trips are one of the most refreshing things to do especially in the picturesque places like Kerala. If you are a bike-person and want to get on the roads while in Kerala, then you should take a bike trip to Kavvayi beach. The beach is located at the backwaters of Kerala. A road trip to this beach is one of the best things to do in Kannur. You will be left spell-bound by the lush green surroundings and nature. Once you reach the beach, you can have other fun activities. You can stay in camps and witness sunrise which will mesmerize you to the core.<br><br>
+												<b>Apt for:</b> Nature lovers, riders, adventure enthusiasts.<br>
+												<b>Location: </b>Kadappurum PO, Thrikaripur, Kerala 671310<br><br></p>
+                                            </li>
+										</ol>
+									</p>
+
+
+										<h3>GETTING THERE</h3>
+										<b>Nearest station: </b>Kannur Railway Station (CAN)
+										<br>
+                                        <b>Nearest airport:</b>  Kannur International Airport(25 km)
+                                        <br><br>
+
+										<h3>LOCATION</h3>
+                                        <b>Latitude:</b> 11.8745° N<br>
+                                        <b>Longitude:</b> 75.3704° E<br><br>
+
+										<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31235.68591523094!2d75.366386!3d11.872972000000008!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba422b9b2aca753%3A0x380605a11ce24f6c!2sKannur%2C%20Kerala%2C%20India!5e0!3m2!1sen!2sus!4v1605342578324!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+										<br><BR>
+										<hr>
+										<h3 style="text-align: center; margin-bottom: 2em;">EXPLORE OTHER DISTRICTS</h3>
+										
+										<div class="vertical-center">
+
+											<p><br><br>
+												<a href="thiruvananthapuram.html"><button class="district">Thiruvananthapuram</button></a><a href="kollam.html"><button class="district">Kollam</button></a><a href="pathanamthitta.html"><button class="district">Pathanamthitta</button></a><a href="alappuzha.html"><button class="district">Alappuzha</button></a><a href="kottayam.html"><button class="district">Kottayam</button></a><a href="idukki.html"><button class="district">Idukki</button></a><a href="ernakulam.html"><button class="district">Ernakulam</button></a><a href="thrissur.html"><button class="district">Thrissur</button></a><a href="palakkad.html"><button class="district">Palakkad</button></a><a href="malappuram.html"><button class="district">Malappuram</button></a><a href="kozhikode.html"><button class="district">Kozhikode</button></a><a href="wayanad.html"><button class="district">Wayanad</button></a><a href="#"><button class="active-btn">Kannur</button></a><a href="kasaragod.html"><button class="district">Kasaragod</button></a>
+											</p>
+										</div>
+										
+
+									</div>
+									<div class="col-lg-2"></div>
+							</div>		
+						</div>	
+
+					</div>	
+			</div>
+		</div>
+	</div>
+
+	<footer>
+        <div class="container module" style="text-align: center; color: gray;">
+                  <h5>Copyright @ Fuzaila</h5>
+        </div>
+    </footer>
+</body>
+</html>

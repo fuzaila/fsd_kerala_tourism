@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>KERALA TOURISM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Vaalea - html5 & css3 free template from Css-workshop.com made by Frontoes.com">
+	<meta name="keywords" content="free html template, free css template, one page template">
+	<meta name="author" content="Frontoes.com for Css-workshop.com">
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script type="text/javascript" src="js/jquery.viewportchecker.js"></script>
+    <script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic,600,300,700italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link type="image/ico" rel="shortcut icon" href="favicon.ico">
+    <link href='owl.carousel/owl-carousel/owl.carousel.css' rel='stylesheet' type='text/css'>
+    <link href='owl.carousel/owl-carousel/owl.theme.css' rel='stylesheet' type='text/css'>
+    <link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
+		<link type="image/ico" rel="shortcut icon" href="favicon.png">
+	<script type="text/javascript">
+		$(function() {
+			/* UP BUTTON */
+			$(".up-button").click(function(e) {
+				e.preventDefault();
+				$.scrollTo(0, 1000);
+			});
+			/* UP BUTTON */
+			
+			/* FIXED NAVBAR */
+			var beginingPositionOfMenu = $("#top_menu").offset().top;
+			var navParentPaddingBottom = parseInt($("#top_menu").parent().css("padding-bottom").replace("px",""));
+			$(window).scroll(function(){
+				if($(this).scrollTop() > beginingPositionOfMenu) {
+					$("#top_menu").addClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom + $("#top_menu").height());
+				} else {
+					$("#top_menu").removeClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom);
+				}
+				if ($(this).scrollTop() > 400){ 
+					$('.up-button').css('display','inline-block'); 
+				}
+				else{
+					$('.up-button').css('display','none');
+				}
+			});
+			/* FIXED NAVBAR */
+			
+			/* MENU */
+			$("ul.top_menu").find('.nav_link').click(function(){
+				var $href = $(this).attr('href');
+			    var parts = $href.split('#'),
+			    trgt = parts[1],
+			    target_offset = $('#'+trgt).offset(),
+			    target_top = target_offset.top - 90;
+  				$('html, body').animate({scrollTop:target_top}, 500);
+   				$('ul.top_menu').children().removeClass();
+   				$(this).parent().addClass('active');
+			});
+			/* MENU */
+			
+			/* MODAL TRIGGER */
+			$(".modal_trigger").click(function(e) {
+				e.preventDefault();
+				$('#myModal').modal({ show: 1 })
+			});
+			/* MODAL TRIGGER */
+			
+			$(".portfolio-item").each(function() {
+				var parentHeight = $(this).height();
+				var childHeight = $(this).find(".portfolio-description h4").outerHeight(true) + $(this).find(".portfolio-description p").outerHeight(true);
+				var topSpace = (parentHeight - childHeight) / 2;
+				$(this).find(".portfolio-description").css({"padding-top": topSpace + "px", "padding-bottom": topSpace + "px"});
+			});
+			
+			sameHeight(".pricing-description");
+			
+		});
+		
+		function sameHeight(blocks) {
+			var i = 0;
+			var maxVal;
+			$(blocks).each(function() {
+				if(i == 0) {
+					maxVal = $(this).height();
+				} else {
+					if($(this).outerHeight() > maxVal) {
+						maxVal = $(this).height();
+					}
+				}
+				i++;
+			});
+			
+			$(blocks).each(function() {
+				$(this).height(maxVal);
+			});
+		}
+        /* owl carousel */
+		$(document).ready(function () {
+
+		    var owl = $(".owl-carousel-1");
+		    var owl2 = $(".owl-carousel-2");
+
+		    owl.owlCarousel({
+		        items: 5, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+		        itemsTablet: [768, 1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+		    });
+		    owl2.owlCarousel({
+		        items: 1, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 1], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 1], // betweem 900px and 601px
+		        itemsTablet: [768,1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+                transitionStyle: "fade",
+		    });
+		});
+		/* VIEWPORT CHECKER */
+		$(document).ready(function () {
+		    $('.module-title').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		    $('.services-item i').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		});
+	</script>
+</head>
+<body>
+    <div class="header">
+        <nav id="top_menu" class="navbar navbar_top navbar-inverse" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <!-- <a href="index.html" style="color: green;" class="top-menu nav_link">KERALA TOURISM.ORG</a>  -->
+                    <a class="navbar-brand" href="#"><img class="img-responsive" src="img/kerala-tourism1.png" style="height: 30px; width: 65px;" alt="vaalea" /></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right top_menu">
+                        <li><a href="#" class="nav_link" style="font-weight: bold;">Home</a></li>
+                        <li><a href="districts.html" class="dropdown-toggle nav_link">Districts</a></li>
+                        <li><a href="blog.html" class="nav_link">Blog</a></li>
+                        <li><a href="login.html" class="nav_link">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="sub_content_fixed" style="background-image: url('https://keralatourdestinations.files.wordpress.com/2012/11/beautiful-places-in-kerala-pictures-56-6.jpg');">
+            <div class="">
+                <div class="inner" style="height:60em;">
+                    <div class="company-name">
+                        <span class="h22">WELCOME TO KERALA</span><br>
+                        <!-- <span class="h44">GOD'S OWN COUNTRY</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sub_content_light">
+            <div class="container module">
+                <div class="row inner">
+                    <div class="col-lg-12">
+                        <h2 class="module-title" id="news">
+                            THE GOD'S OWN COUNTRY
+                        </h2> 
+                        <div class="news">
+                            <div class="row">
+                                <div class="col-lg-12" style="font-size: large; text-align: justify;">
+                                   <p>Named as one of the ten paradises of the world by National Geographic Traveler, Kerala is famous especially for its ecotourism initiatives and beautiful backwaters. Its unique culture and traditions, coupled with its varied demography, have made Kerala one of the most popular tourist destinations in the world.</p>
+                                   <p>Discover the tropical luxuriance and eclectic culture of India’s Kerala province, which lies along the rich Malabar Coast. Stroll along picturesque, golden-sand shores; glide through jungle-lined backwaters on a traditional wooden houseboat; and savour one of the most enticing cuisines the country has to offer. Steer off the beaten path on this refreshing journey, exploring rural villages, spending time with local fishermen and farmers, and experiencing the serene charm of southern India. </p>
+                                    <p>Kerala, a state on India’s tropical Malabar Coast, has nearly 600km of Arabian Sea shoreline. It’s known for its palm-lined beaches and backwaters, a network of canals. Inland are the Western Ghats. Kanyakumari is a coastal town in the state of Tamil Nadu on India’s southern tip. Jutting into the Laccadive Sea, the town was known as Cape Comorin during British rule and is popular for watching sunrise and sunset over the ocean. </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-4" style="font-size: large; text-align: justify;">
+                                    <br>
+                                    <table  class="info" style="float: center;">
+                                        <tr>
+                                            <th style="">STATE</th>
+                                            <td style="">Kerala</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="">CAPITAL</th>
+                                            <td style="">Thiruvananthapuram</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="">FORMED ON</th>
+                                            <td style="">November 1, 1958</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-lg-4"></div>
+                            </div>        
+                            <br>        
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+        <div class="sub_content_light">
+            <div class="container module">
+                <div class="row inner">
+                    <div class="col-lg-12">
+                        <h2 class="module-title" id="news">
+                            Districts
+                            <!--<span class="module-title_sub">The latest info</span> -->
+                        </h2>
+                        <div class="news">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://www.sentinelassam.com/wp-content/uploads/2019/08/Kerala.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content media-r">
+                                            <h3 class="media-heading"><b> THIRUVANANTHAPURAM</b></h3>
+                                            <div class="media-body">
+                                                <p>One of the most beautiful Indian states with Trivandrum otherwise known as Thiruvananthapuram, the capital city of Kerala.</p>
+                                            </div>
+                                            <a href="thiruvananthapuram.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://img.traveltriangle.com/blog/wp-content/uploads/2018/04/Mayyanad-kollam-kb6592.jpeg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-r"><b>KOLLAM</b></h3>
+                                            <div class="media-body">
+                                                <p>Kollam is an impeccable blend of age-old traditions and spectacular beauty due to which it has earned the title of dreamland of Kerala. </p>
+                                            </div>
+                                            <a href="kollam.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Gavi%2C_Kerala.jpg/640px-Gavi%2C_Kerala.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+											<h3 class="media-heading media-o"><b>PATHANAMTHITTA</b></h3>
+                                            <div class="media-body">
+                                                <p>Bordered by the Western Ghats, this district offers an enchanting view of rivers, landscapes, never ending forests, fairs & festivals, wildlife.</p>
+                                            </div>
+                                            <a href="pathanamthitta.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://nbmtravel.com/wp-content/uploads/2018/09/alleppey-backwater-attracti.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-o"><B>ALAPPUZHA</B></h3>
+                                            <div class="media-body">
+                                                <p>Washed by the silvery waves of the Arabian Sea, Alappuzha welcomes you to the backwaters of kerala. </p>
+                                            </div>
+                                            <a href="alappuzha.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+							</div>
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2016/02/Island-of-Pathiramanal-in-Kottayam.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-y"><b>KOTTAYAM</b></h3>
+                                            <div class="media-body">
+                                                <p>Kottayam, a town situated in south-central Kerala is an epitome of beauty between Kerala hill country and Vembanad. </p>
+                                            </div>
+                                            <a href="kottayam.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://www.keralaholidays.com/uploads/tourpackages-gallery/thumb/Munnar-Thekkady-Alleppey-Tour.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-y"><b>IDUKKI</b></h3>
+                                            <div class="media-body">
+                                                <p>Idukki is known for its scenic beauty and is believed to be a heaven for nature lovers. The climate of Idukki is Tropical. </p>
+                                            </div>
+                                            <a href="idukki.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+							</div>
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/04/Fort-Kochi.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-g"><b>ERNAKULAM</b></h3>
+                                            <div class="media-body">
+                                                <p>Tinted with the garish colours of history and magnificence of Kerala, Ernakulam is the most lively and stunning destination of Kerala.</p>
+                                            </div>
+                                            <a href="ernakulam.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://2.imimg.com/data2/YS/IM/MY-3205896/kerala-kerala-tourism-thrissur.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-g"><b>THRISSUR</b></h3>
+                                            <div class="media-body">
+                                                <p>Thrissur is a place from where Kerala gets its charm of festivals. It was the capital of the Kingdom of Kochi. </p>
+                                            </div>
+                                            <a href="thrissur.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+							</div>
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://img.traveltriangle.com/blog/wp-content/uploads/2018/04/best-places-to-visit-in-palakkad-cover.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-b"><b>PALAKKAD</b></h3>
+                                            <div class="media-body">
+                                                <p>Palakkad or Palghat, situated in the foothills of the Nilgiris, is widely heralded as the gateway to Kerala.</p>
+                                            </div>
+                                            <a href="palakkad.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2019/06/Biyyam-Kayal.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-b"><b>MALAPPURAM</b></h3>
+                                            <div class="media-body">
+                                                <p>Surrounded by the Nilgiri hills and the gorgeous Arabian Sea, Malappuram is also quite significant for Indian history. </p>
+                                            </div>
+                                            <a href="malappuram.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+							</div>
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://www.nativeplanet.com/img/2018/05/summerdestinations-1525954780.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-i"><b>KOZHIKODE</b></h3>
+                                            <div class="media-body">
+                                                <p>A pristine haven in nature, Kozhikode is a coastal city in the Southern Coast of, filled with lush greenery, tranquil beaches, and historical forts.</p>
+                                            </div>
+                                            <a href="kozhikode.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://images.thrillophilia.com/image/upload/s--FuOoaZMj--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/053/331/original/1520061882_Neelimala_View_Point.jpeg.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-r"><b>WAYANAD</b></h3>
+                                            <div class="media-body">
+                                                <p>Adorning the northern hills of Kerala is the beautiful Wayanad, famous for its flora, fauna and an overall plethora of magnificent sights.</p>
+                                            </div>
+                                            <a href="wayanad.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+							</div>
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://www.dtpckannur.com/public/img/slider/banner-02.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-v"><b>KANNUR</b></h3>
+                                            <div class="media-body">
+                                                <p>Kannur is also known as the ‘Manchester of Kerala’ as the handloom fabric produced here is the finest and is exported to many great countries. </p>
+                                            </div>
+                                            <a href="kannur.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article class="media" style=" background-image: url('https://images.thrillophilia.com/image/upload/s--l8JwVLOc--/c_fill,dpr_1.0,g_auto,h_450,w_753/v1/attractions/images/000/003/740/original/1552979160_bekal_fort.jpg.jpg')">
+                                        <a href="#">
+                                        </a>
+                                        <div class="media-content">
+                                            <h3 class="media-heading media-r"><b>KASARAGOD</b></h3>
+                                            <div class="media-body">
+                                                <p>Kasaragod, also known as Kasargod, is an offbeat getaway of Kerala. Tucked in the Western Ghats’ hills, this tourist spot offers enriched history.</p>
+                                            </div>
+                                            <a href="kasaragod.html" class="media-more">Read more</a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <br><br>
+        </div>
+       
+        <div class="sub_content_light">
+					<div class="container module">
+							<div class="row inner">
+									<div class="col-md-12">
+											<h2 class="module-title">HOW TO REACH KERALA</h2>
+											<div class="row">
+													<div class="col-md-6">
+                                                        <!-- <p><li>
+                                                            <ul>Take a tour of a spice and tea plantation in Thekkady, and sample home-cooked Southern India cuisine.</ul>
+                                                            <ul>Explore Kerala’s verdant backwaters by boat and look out for rare birds on a cruise of Periyar Lake.</ul>
+                                                            <ul>Learn about the work of the Vembanad Wetlands Conservation Program, whose parent organization has received support from National Geographic.</ul>
+                                                            <ul>Admire the charming colonial architecture of Kochi, and enjoy a fascinating kathakali performance.</ul>
+                                                        </li></p> -->
+                                                        <table  class="info" style="float: center;">
+                                                            <tr>
+                                                                <th style="">INTERNATIONAL AIRPORTS</th>
+                                                                <td style="">Thiruvananthapuram, Cochin, Calicut, Kannur</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th style="">MAJOR RAILWAYS</th>
+                                                                <td style="">Shornur, Ernakulam Central, Kannur, Kozhikode,<br> Kollam Junction</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th style="">MAJOR PORTS</th>
+                                                                <td style="">Kochin, Vizhinham, Quilon</td>
+                                                            </tr>
+                                                        </table>
+                                                        <br><br>
+															<p style="font-size: large; text-align: justify;">Have you got any queries? Shoot us all your worries and doubts about visiting Kerala and we'll do our best to answer. </p><br>
+															<input class="form-control" placeholder="Email" /> <br />
+															<textarea class="form-control" rows="6" placeholder="Message"></textarea> <br/>
+															<button class="btn btn-primary pull-right" style="color: white; background-color: #13772c; border-radius: 50%;">Send</button>
+													</div>
+													<div class="col-md-6">
+															<div>		
+                                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4016734.7527726707!2d73.88381004802422!3d10.532724200376261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0812ffd49cf55b%3A0x64bd90fbed387c99!2sKerala!5e0!3m2!1sen!2sin!4v1605247294711!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                                            </div>
+                                                    </div>
+                                            </div>
+									</div>
+							</div>
+					</div>
+		</div> 
+    </div>
+
+    <footer>
+        <div class="container module" style="text-align: center; color: gray;">
+                  <h5>Copyright @ Fuzaila</h5>
+        </div>
+    </footer>
+    
+   
+</body>
+</html>

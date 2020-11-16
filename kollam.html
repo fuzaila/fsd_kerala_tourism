@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Kollam</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Vaalea - html5 & css3 free template from Css-workshop.com made by Frontoes.com">
+	<meta name="keywords" content="free html template, free css template, one page template">
+	<meta name="author" content="Frontoes.com for Css-workshop.com">
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script type="text/javascript" src="js/jquery.viewportchecker.js"></script>
+	<script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+	
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic,600,300,700italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link type="image/ico" rel="shortcut icon" href="favicon.ico">
+    <link href='owl.carousel/owl-carousel/owl.carousel.css' rel='stylesheet' type='text/css'>
+    <link href='owl.carousel/owl-carousel/owl.theme.css' rel='stylesheet' type='text/css'>
+	<link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
+	
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+		<link type="image/ico" rel="shortcut icon" href="favicon.png">
+	<script type="text/javascript">
+		$(function() {
+			/* UP BUTTON */
+			$(".up-button").click(function(e) {
+				e.preventDefault();
+				$.scrollTo(0, 1000);
+			});
+			/* UP BUTTON */
+			
+			/* FIXED NAVBAR */
+			var beginingPositionOfMenu = $("#top_menu").offset().top;
+			var navParentPaddingBottom = parseInt($("#top_menu").parent().css("padding-bottom").replace("px",""));
+			$(window).scroll(function(){
+				if($(this).scrollTop() > beginingPositionOfMenu) {
+					$("#top_menu").addClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom + $("#top_menu").height());
+				} else {
+					$("#top_menu").removeClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom);
+				}
+				if ($(this).scrollTop() > 400){ 
+					$('.up-button').css('display','inline-block'); 
+				}
+				else{
+					$('.up-button').css('display','none');
+				}
+			});
+			/* FIXED NAVBAR */
+			
+			/* MENU */
+			$("ul.top_menu").find('.nav_link').click(function(){
+				var $href = $(this).attr('href');
+			    var parts = $href.split('#'),
+			    trgt = parts[1],
+			    target_offset = $('#'+trgt).offset(),
+			    target_top = target_offset.top - 90;
+  				$('html, body').animate({scrollTop:target_top}, 500);
+   				$('ul.top_menu').children().removeClass();
+   				$(this).parent().addClass('active');
+			});
+			/* MENU */
+			
+			/* MODAL TRIGGER */
+			$(".modal_trigger").click(function(e) {
+				e.preventDefault();
+				$('#myModal').modal({ show: 1 })
+			});
+			/* MODAL TRIGGER */
+			
+			$(".portfolio-item").each(function() {
+				var parentHeight = $(this).height();
+				var childHeight = $(this).find(".portfolio-description h4").outerHeight(true) + $(this).find(".portfolio-description p").outerHeight(true);
+				var topSpace = (parentHeight - childHeight) / 2;
+				$(this).find(".portfolio-description").css({"padding-top": topSpace + "px", "padding-bottom": topSpace + "px"});
+			});
+			
+			sameHeight(".pricing-description");
+			
+		});
+		
+		function sameHeight(blocks) {
+			var i = 0;
+			var maxVal;
+			$(blocks).each(function() {
+				if(i == 0) {
+					maxVal = $(this).height();
+				} else {
+					if($(this).outerHeight() > maxVal) {
+						maxVal = $(this).height();
+					}
+				}
+				i++;
+			});
+			
+			$(blocks).each(function() {
+				$(this).height(maxVal);
+			});
+		}
+        /* owl carousel */
+		$(document).ready(function () {
+
+		    var owl = $(".owl-carousel-1");
+		    var owl2 = $(".owl-carousel-2");
+
+		    owl.owlCarousel({
+		        items: 5, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+		        itemsTablet: [768, 1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+		    });
+		    owl2.owlCarousel({
+		        items: 1, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 1], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 1], // betweem 900px and 601px
+		        itemsTablet: [768,1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+                transitionStyle: "fade",
+		    });
+		});
+		/* VIEWPORT CHECKER */
+		$(document).ready(function () {
+		    $('.module-title').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		    $('.services-item i').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		});
+	</script>
+</head>
+<body>
+    <div class="header">
+        <nav id="top_menu" class="navbar navbar_top navbar-inverse" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <!-- <a href="index.html" style="color: green;" class="top-menu nav_link">KERALA TOURISM.ORG</a>  -->
+                    <a class="navbar-brand" href="#"><img class="img-responsive" src="img/kerala-tourism1.png" style="height: 30px; width: 65px;" alt="vaalea" /></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right top_menu">
+						<li><a href="index.html" class="nav_link">Home</a></li>
+						<li><a href="districts.html" class="dropdown-toggle nav_link">Districts</a></li>
+                        <li><a href="blog.html" class="dropdown-toggle nav_link">Blog</a></li>
+                     
+                        <li><a href="login.html" class="nav_link" style="">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</div>
+	
+	<div class="sub_content_light">
+		<div class="container module">
+			<div class="row inner">
+					<div class="col-lg-12">
+
+                        <h2 class="module-title" id="news">
+                            KOLLAM
+						</h2> 
+						
+                        <div class="news">
+
+                            <div class="row">
+
+								<div class="col-lg-2"></div>
+
+								<div class="col-lg-8">
+										
+
+											<div id="carousel-example-generic" class="carousel slide genn" data-ride="carousel">
+
+												<!-- Indicators -->
+												<ol class="carousel-indicators">
+												<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+												<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+												</ol>
+											
+												<!-- Wrapper for slides -->
+												<div class="carousel-inner" role="listbox">
+												<div class="item active">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2018/04/Jatayu%E2%80%99s-Earth-Centre-kollam-kb6592.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2019/01/Kollam_Kerala.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2019/01/punalur.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2020/02/Aryankavu.jpg" class="img-responsive">
+												</div>
+												<div class="item">
+													<img src="https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2018/04/Palaruvi-waterfalls-kollam-kb6592.jpg" class="img-responsive">
+												</div>
+												</div>
+											
+												<!-- Controls -->
+												<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+												<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+												</a>
+												<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+												<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+												<span class="sr-only">Next</span>
+												</a>
+
+											</div>
+										
+								</div>
+								
+								<div class="col-lg-6"></div>
+
+							</div>	
+
+							<div class="row">
+									<div class="col-lg-2"></div>
+									<div class="col-lg-8" style="font-size: large; text-align: justify;">
+										<p>Kollam is an impeccable blend of age-old traditions and spectacular beauty due to which it has earned the title of dreamland of Kerala. Formerly known as Quilon, this city is settled on India’s Malabar Coast. During the British rule, it was one of the most popular ports and trading center of spices that was visited by Chinese, Greeks, Romans, and Arabs.</p>
+
+										<p>Now, the city has gained prominence as a major cashew producer and thus it is now a hub of cashew trading. Along with this, the city is home to sundry traditional temples built in ornate architectural style and other historic remnants. The city of Kollam is full of interesting places to explore and activities that you can indulge in.</p>
+
+										<p>Kollam has been on the route map of spice traders for a very long time. Legendary explorers like Ibn Battuta to Marco Polo have talked about the prominence of Kollam district for centuries. Endowed with a long and scenic coastline, Kollam has many peaceful and scenic places to offer. Since it is located on the banks of Ashtamudi Lake, it is also one of the best places to go cruising in the backwaters. </p><br>
+
+										<h3>MAJOR THINGS TO DO</h3>
+										<ol>
+											<li>
+												<h4>Canoeing</h4>
+                                                    
+                                                <p style="font-size: smaller;"> If you want to make the most of your trip to Kerala then you must not miss this amazing activity in the backwaters of Munroe Island. Waters reflecting the clear sky and surrounding lush green foliage is definitely a sight to behold. Imagine yourself kayaking or canoeing in these calm waters. Isn’t it enticing? So, get ready to paddle your canoe through narrow channels lined with palm trees as it is one of the best things to do in Kollam Kerala.<br><br>                                                   
+                                                <b>Price: </b>Around Rs. 400 per head.<br>
+												<b>Location: </b>Munroe Island, Kerala<br><br></p>
+											</li>
+											<li>
+												<h4>Paddlesport Activities</h4>
+                                                <p style="font-size: smaller;">Are you the kind of person who likes secluded places? Then you must not miss out on this hidden gem in Kollam that provides all the electrifying water activities. Paravur Backwaters is one of the secret locations in Kerala that is a sight of heaven. One can opt for kayaking, canoeing, and can even use fishing crafts in this water that connects Kollam and Thiruvananthapuram. A long trail of kayaking will give a glimpse of the sandbar, railway bridge, traditional fishing area, and other attractions.
+
+                                                    <br><br>
+                                                <b>Price: </b>Ranges between Rs. 150 to Rs. 650 for different activities.<br>
+												<b>Location: </b>Paravur, Kollam, Kerala<br><br></p>
+											</li>
+											<li>
+												<h4>Houseboat Ride</h4>
+												<p style="font-size: smaller;">We all know that a trip to Kerala is incomplete without a houseboat ride. Kollam backwaters give a chance to opt for a houseboat ride which is one of the most romantic things to do in this city. If you are planning your honeymoon to this destination then this activity must be included in your itinerary. A houseboat ride gives some romantic time for couples to create some memorable moments.<br><br>
+												<b>Apt for:</b> Families, couples, peace lovers.<br>
+												<b>Location: </b>Munroe Island, Kerala<br><br></p>
+                                            </li>
+										</ol>
+									</p>
+
+
+										<h3>GETTING THERE</h3>
+										<b>Nearest station: </b>Eravipuram (IRP), Kollam Junction (QLN)
+										<br>
+                                        <b>Nearest airport:</b>  Thiruvananthapuram International Airport (51 km)
+                                        <br><br>
+
+										<h3>LOCATION</h3>
+                                        <b>Latitude:</b> 8.8932° N<br>
+                                        <b>Longitude:</b> 76.6141° E<br><br>
+
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126135.5733876055!2d76.52503277039918!3d8.904055753678593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fc5bdda9c621%3A0x8bf03195267372f7!2sKollam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1605345268629!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+										<br><BR>
+										<hr>
+										<h3 style="text-align: center; margin-bottom: 2em;">EXPLORE OTHER DISTRICTS</h3>
+										
+										<div class="vertical-center">
+
+                                            
+                                            <p><br><br>
+                                            <a href="thiruvananthapuram.html"><button class="district">Thiruvananthapuram</button></a><a href="#"><button class="active-btn">Kollam</button></a><a href="pathanamthitta.html"><button class="district">Pathanamthitta</button></a><a href="alappuzha.html"><button class="district">Alappuzha</button></a><a href="kottayam.html"><button class="district">Kottayam</button></a><a href="idukki.html"><button class="district">Idukki</button></a><a href="ernakulam.html"><button class="district">Ernakulam</button></a><a href="thrissur.html"><button class="district">Thrissur</button></a><a href="palakkad.html"><button class="district">Palakkad</button></a><a href="malappuram.html"><button class="district">Malappuram</button></a><a href="kozhikode.html"><button class="district">Kozhikode</button></a><a href="wayanad.html"><button class="district">Wayanad</button></a><a href="kannur.html"><button class="district">Kannur</button></a><a href="kasaragod.html"><button class="district">Kasaragod</button></a>
+                                        </p>
+										</div>
+										
+
+									</div>
+									<div class="col-lg-2"></div>
+							</div>		
+						</div>	
+
+					</div>	
+			</div>
+		</div>
+	</div>
+
+	<footer>
+        <div class="container module" style="text-align: center; color: gray;">
+                  <h5>Copyright @ Fuzaila</h5>
+        </div>
+    </footer>
+</body>
+</html>

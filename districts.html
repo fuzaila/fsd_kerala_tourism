@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Districts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Vaalea - html5 & css3 free template from Css-workshop.com made by Frontoes.com">
+	<meta name="keywords" content="free html template, free css template, one page template">
+	<meta name="author" content="Frontoes.com for Css-workshop.com">
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script type="text/javascript" src="js/jquery.viewportchecker.js"></script>
+	<script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+	
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic,600,300,700italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link type="image/ico" rel="shortcut icon" href="favicon.ico">
+    <link href='owl.carousel/owl-carousel/owl.carousel.css' rel='stylesheet' type='text/css'>
+    <link href='owl.carousel/owl-carousel/owl.theme.css' rel='stylesheet' type='text/css'>
+	<link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
+	
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+		<link type="image/ico" rel="shortcut icon" href="favicon.png">
+	<script type="text/javascript">
+		$(function() {
+			/* UP BUTTON */
+			$(".up-button").click(function(e) {
+				e.preventDefault();
+				$.scrollTo(0, 1000);
+			});
+			/* UP BUTTON */
+			
+			/* FIXED NAVBAR */
+			var beginingPositionOfMenu = $("#top_menu").offset().top;
+			var navParentPaddingBottom = parseInt($("#top_menu").parent().css("padding-bottom").replace("px",""));
+			$(window).scroll(function(){
+				if($(this).scrollTop() > beginingPositionOfMenu) {
+					$("#top_menu").addClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom + $("#top_menu").height());
+				} else {
+					$("#top_menu").removeClass("navbar-fixed-top");
+					$("#top_menu").parent().css("padding-bottom", navParentPaddingBottom);
+				}
+				if ($(this).scrollTop() > 400){ 
+					$('.up-button').css('display','inline-block'); 
+				}
+				else{
+					$('.up-button').css('display','none');
+				}
+			});
+			/* FIXED NAVBAR */
+			
+			/* MENU */
+			$("ul.top_menu").find('.nav_link').click(function(){
+				var $href = $(this).attr('href');
+			    var parts = $href.split('#'),
+			    trgt = parts[1],
+			    target_offset = $('#'+trgt).offset(),
+			    target_top = target_offset.top - 90;
+  				$('html, body').animate({scrollTop:target_top}, 500);
+   				$('ul.top_menu').children().removeClass();
+   				$(this).parent().addClass('active');
+			});
+			/* MENU */
+			
+			/* MODAL TRIGGER */
+			$(".modal_trigger").click(function(e) {
+				e.preventDefault();
+				$('#myModal').modal({ show: 1 })
+			});
+			/* MODAL TRIGGER */
+			
+			$(".portfolio-item").each(function() {
+				var parentHeight = $(this).height();
+				var childHeight = $(this).find(".portfolio-description h4").outerHeight(true) + $(this).find(".portfolio-description p").outerHeight(true);
+				var topSpace = (parentHeight - childHeight) / 2;
+				$(this).find(".portfolio-description").css({"padding-top": topSpace + "px", "padding-bottom": topSpace + "px"});
+			});
+			
+			sameHeight(".pricing-description");
+			
+		});
+		
+		function sameHeight(blocks) {
+			var i = 0;
+			var maxVal;
+			$(blocks).each(function() {
+				if(i == 0) {
+					maxVal = $(this).height();
+				} else {
+					if($(this).outerHeight() > maxVal) {
+						maxVal = $(this).height();
+					}
+				}
+				i++;
+			});
+			
+			$(blocks).each(function() {
+				$(this).height(maxVal);
+			});
+		}
+        /* owl carousel */
+		$(document).ready(function () {
+
+		    var owl = $(".owl-carousel-1");
+		    var owl2 = $(".owl-carousel-2");
+
+		    owl.owlCarousel({
+		        items: 5, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+		        itemsTablet: [768, 1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+		    });
+		    owl2.owlCarousel({
+		        items: 1, //10 items above 1000px browser width
+		        itemsDesktop: [1000, 1], //5 items between 1000px and 901px
+		        itemsDesktopSmall: [900, 1], // betweem 900px and 601px
+		        itemsTablet: [768,1],
+		        autoPlay: 2000,
+		        stopOnHover: true,
+		        pagination: false,
+                transitionStyle: "fade",
+		    });
+		});
+		/* VIEWPORT CHECKER */
+		$(document).ready(function () {
+		    $('.module-title').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		    $('.services-item i').viewportChecker({
+		        classToAdd: 'zoomIn visible animated'
+		    });
+		});
+	</script>
+</head>
+<body>
+    <div class="header">
+        <nav id="top_menu" class="navbar navbar_top navbar-inverse" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <!-- <a href="index.html" style="color: green;" class="top-menu nav_link">KERALA TOURISM.ORG</a>  -->
+                    <a class="navbar-brand" href="#"><img class="img-responsive" src="img/kerala-tourism1.png" style="height: 30px; width: 65px;" alt="vaalea" /></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right top_menu">
+                        <li><a href="index.html" class="nav_link">Home</a></li>
+                        <li><a href="#" class="dropdown-toggle nav_link"><b>Districts</b></a></li>
+                        <li><a href="blog.html" class="nav_link">Blog</a></li>
+                        <li><a href="login.html" class="nav_link" style="">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</div>
+	
+	<div class="sub_content_light">
+		<div class="container module">
+			<div class="row inner">
+					<div class="col-lg-12">
+
+                        <h2 class="module-title" id="news">
+                            DISTRICTS
+						</h2> 
+						<p style="text-align: center; font-size: large;">Select a district to browse through without leaving the page</p>
+						
+                        <div class="news">
+
+							<div class="row">
+                                <div class="col-lg-2"></div>
+									<div class="col-lg-8">
+									
+										<br>
+										
+										<div class="vertical-center">
+
+											<p><br><br>
+												<a href="thiruvananthapuram.html" target="iframe"><button class="district">Thiruvananthapuram</button></a><a href="kollam.html" target="iframe"><button class="district">Kollam</button></a><a href="pathanamthitta.html" target="iframe"><button class="district">Pathanamthitta</button></a><a href="alappuzha.html" target="iframe"><button class="district">Alappuzha</button></a><a href="kottayam.html" target="iframe"><button class="district">Kottayam</button></a><a href="idukki.html" target="iframe"><button class="district">Idukki</button></a><a href="ernakulam.html" target="iframe"><button class="district">Ernakulam</button></a><a href="thrissur.html" target="iframe"><button class="district">Thrissur</button></a><a href="palakkad.html" target="iframe"><button class="district">Palakkad</button></a><a href="malappuram.html" target="iframe"><button class="district">Malappuram</button></a><a href="kozhikode.html" target="iframe"><button class="district">Kozhikode</button></a><a href="wayanad.html" target="iframe"><button class="district">Wayanad</button></a><a href="kannur.html" target="iframe"><button class="district">Kannur</button></a><a href="kasaragod.html" target="iframe"><button class="district">Kasaragod</button></a>
+											</p>
+										</div>
+                                        <div class="col-lg-2"></div>	
+									</div>	
+							</div>		
+							<div class="row">
+								<div class="col-lg-12">
+									<iframe name="iframe" src="about:blank" title="DISTRICT" height="600px" width="100%" style="border: none;"></iframe>
+								</div>
+							</div>
+
+
+						</div>	
+
+					</div>	
+			</div>
+		</div>
+	</div>
+
+	<footer>
+        <div class="container module" style="text-align: center; color: gray;">
+                  <h5>Copyright @ Fuzaila</h5>
+        </div>
+    </footer>
+</body>
+</html>
