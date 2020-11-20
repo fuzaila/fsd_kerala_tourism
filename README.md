@@ -14,6 +14,7 @@ Website for Kerala Tourism built using HTML, CSS, JavaScript and Bootstrap
 
 
 JAVASCRIPT VALIDATIONS
+
 --> Sign In and Sign Up button won't be enabled until all the field values are proper.
 
 --> Checking email and password formats in Login and Sign Up pages.
