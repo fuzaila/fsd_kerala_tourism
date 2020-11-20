@@ -12,8 +12,8 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
     <script type="text/javascript" src="js/jquery.viewportchecker.js"></script>
-    <script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
-
+	<script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+	
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 	<link type="text/css" rel="stylesheet" href="css/stylesheet.css">
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
@@ -21,11 +21,13 @@
     <link type="text/css" rel="stylesheet" href="css/animate.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic,600,300,700italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-	<link type="image/ico" rel="shortcut icon" href="favicon.ico">
+	
     <link href='owl.carousel/owl-carousel/owl.carousel.css' rel='stylesheet' type='text/css'>
     <link href='owl.carousel/owl-carousel/owl.theme.css' rel='stylesheet' type='text/css'>
     <link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
-		<link type="image/ico" rel="shortcut icon" href="favicon.png">
+
+	
+
 	<script type="text/javascript">
 		$(function() {
 			/* UP BUTTON */
@@ -140,9 +142,10 @@
 		    });
 		});
 
+
 	</script>
 </head>
-<body">
+<body>
     <div class="header">
         <nav id="top_menu" class="navbar navbar_top navbar-inverse" role="navigation">
             <div class="container">
@@ -178,13 +181,17 @@
 											<div class="main">
 												<div>
 													<p class="sign">Sign in</p>
-													<form class="form1">
-													<input class="un " type="text" placeholder="Email" required pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" title="The email isn't in a valid format username@domain.com" />
-													<input class="pass" type="password" placeholder="Password" required />
-													<input class="submit" type="submit" value="Sign In" />
-													<br><br>
-													<p class="forgot"><a href="#">Forgot Password?<br><br>
-													<a href="signup.html">Create an account</a></p>	
+													<form id="form1" action="index.html">
+														<div class="form-group">
+															<input class="un " type="text" placeholder="Email" required id="email"/>
+														</div>
+														<div class="form-group"> 
+															<input class="pass" type="password" placeholder="Password" required id="pwd" />
+														</div>
+														<input class="submit" type="submit" value="Sign In" id="login-button" disabled/>
+														<br><br>
+														<p class="forgot"><a href="#">Forgot Password?<br><br>
+														<a href="signup.html">Create an account</a></p>	
 													</form>		
 												</div>	
 												
@@ -197,11 +204,11 @@
 			</div>
 	</div> 
 
-
 	<footer>
         <div class="container module" style="text-align: center; color: gray;">
                   <h5>Copyright @ Fuzaila</h5>
         </div>
-    </footer>
+	</footer>
+	<script src="js/validate_login.js"></script>
 </body>
 </html>

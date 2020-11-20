@@ -17,27 +17,36 @@
 }
 
 .un {
-width: 76%;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
-box-shadow: 1px 1px 2px gainsboro;
+        width: 76%;
+        color: rgb(38, 50, 56);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        background: rgba(136, 126, 126, 0.04);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        box-sizing: border-box;
+        border: 2px solid rgba(0, 0, 0, 0.02);
+        margin-bottom: 50px;
+        margin-left: 46px;
+        text-align: center;
+        margin-bottom: 27px;
+        font-family: 'Ubuntu', sans-serif;
+        box-shadow: 1px 1px 2px gainsboro;
+
+        &.valid {
+            color: green;
+        }
+        
+        &.invalid{
+            color: red;
+        }
+
 }
 
-form.form1 {
+form #form1 {
     padding-top: 40px;
 }
 
@@ -85,6 +94,10 @@ box-shadow: 1px 1px 2px gainsboro;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
+.submit:disabled{
+    background: #96b69d;
+}
+
 .forgot {
     text-align: center;
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
@@ -102,3 +115,22 @@ a {
 .un #country option{
     text-align: center;
 }
+
+
+.tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    height: auto;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 14px;
+    margin: 5px;
+    position: absolute;
+    z-index: 1;
+  }
+
+
+ 
+  

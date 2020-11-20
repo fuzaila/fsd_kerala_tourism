@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
     <script type="text/javascript" src="js/jquery.viewportchecker.js"></script>
-    <script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="owl.carousel/owl-carousel/owl.carousel.min.js"></script>
 
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 	<link type="text/css" rel="stylesheet" href="css/stylesheet.css">
@@ -21,11 +21,12 @@
     <link type="text/css" rel="stylesheet" href="css/animate.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic,600,300,700italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-	<link type="image/ico" rel="shortcut icon" href="favicon.ico">
     <link href='owl.carousel/owl-carousel/owl.carousel.css' rel='stylesheet' type='text/css'>
     <link href='owl.carousel/owl-carousel/owl.theme.css' rel='stylesheet' type='text/css'>
-    <link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
-		<link type="image/ico" rel="shortcut icon" href="favicon.png">
+	<link href='owl.carousel/owl-carousel/owl.transitions.css' rel='stylesheet' type='text/css'>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+	
 	<script type="text/javascript">
 		$(function() {
 			/* UP BUTTON */
@@ -177,11 +178,13 @@
 										<div class="col-md-6">
 											<div class="main">
 												<div>
-													<p class="sign">Create my account</p>
-													<form class="form1">
-														<input class="un " type="text" placeholder="Name" required pattern="[A-Z]{1}+[A-Za-z]" />
-														<input class="un " type="text" placeholder="Date of birth" onfocus="(this.type='date')" required />
-														<input class="un " type="text" placeholder="Email" required />	
+													<p class="sign">Create my account</p><br>
+													<form id="form1" action="index.html">
+														<input class="un " type="text" placeholder="Name" required id="uname" />
+
+														<input class="un " type="text" placeholder="Date of birth" onfocus="(this.type='date')" required id="dob" />
+														<input class="un " type="text" placeholder="Email" required id="email" />	
+														<input class="un " type="tel" placeholder="Phone number" required id="phone" />
 														<select id="country" name="country" class="un " style="text-align: center;" required>
 															<option value="" selected hidden disabled>Choose your country</option>
 															<option value="Afganistan">Afghanistan</option>
@@ -431,14 +434,15 @@
 															<option value="Zambia">Zambia</option>
 															<option value="Zimbabwe">Zimbabwe</option>
 														 </select>
-													<input class="pass" type="password" placeholder="Password" required />
-													<input class="pass" type="password" placeholder="Confirm Password" required />
+														<input class="pass" type="password" placeholder="Password" required id="pwd1" /><span class="tooltiptext"></span><br>
+														
+														<input class="pass" type="password" placeholder="Confirm Password" required id="pwd2" style="margin-bottom: 4px;" /><br>
+														<p class="forgot" id="match" style="padding: 0px; margin-top: 0px; margin-bottom: 2em;"></p>
 
-													<input type="submit" class="submit" value="Sign Up" />
-													<br>
-													<p class="forgot"><br>
-													<a href="login.html">I already have an account</a></
-													p>	
+														<input type="submit" class="submit" value="Sign Up" id="signup" disabled />
+														<br>
+														<p class="forgot"><br>
+														<a href="login.html">I already have an account</a> </p>	
 													</form>		
 												</div>	
 												
@@ -456,6 +460,7 @@
         <div class="container module" style="text-align: center; color: gray;">
                   <h5>Copyright @ Fuzaila</h5>
         </div>
-    </footer>
+	</footer>
+	<script src="js/validate_signup.js"></script>
 </body>
 </html>
