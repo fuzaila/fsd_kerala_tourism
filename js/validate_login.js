@@ -4,7 +4,7 @@ var button = document.getElementById('login-button');
 var flag_e = 0;
 var flag_p = 0;
 
-var email = /^([A-Za-z0-9\.\-\_]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3}?)$/;
+var email = /^([a-zA-Z0-9_\.\-]+)@([a-zA-Z0-9\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/
 var password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 username.addEventListener('input', function validate_email()
