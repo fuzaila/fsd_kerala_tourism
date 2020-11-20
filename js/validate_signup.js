@@ -9,7 +9,7 @@ var button = document.getElementById('signup');
 var mydob = document.getElementById('dob');
 
 var namex = /^([A-Z]{1})([A-Za-z ]+)$/;
-var email = /^([A-Za-z0-9._-]+)@([A-Za-z0-9.-]+)\.([a-z]{2,3})(^.[a-z]{2,3})?$/;
+var email = /^([a-zA-Z0-9_\.\-]+)@([a-zA-Z0-9\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/
 var password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 var tel = /^([0-9]{10})$/;
 var tel1 = /^([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})$/;
