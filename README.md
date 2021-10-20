@@ -1,4 +1,4 @@
-KERALA TOURISM WEBSITE
+KERALA TOURISM WEBSITE (https://fuzaila.github.io/fsd_kerala_tourism)
 
 Website for Kerala Tourism built using HTML, CSS, JavaScript and Bootstrap
 
